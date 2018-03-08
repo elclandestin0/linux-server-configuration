@@ -13,8 +13,10 @@ I will provide screenshots to document the steps required to reproduce this proj
   <li> SSH using your local terminal by executing the command: <code>ssh -i <i>path-to-key</i> ubuntu@<i>ip-address-here</i> -p <i>2200</i></code></li>
 </ul>
 3) Change port number from 22 to 2200 by executing the file: <code> sudo vim /etc/ssh/sshd_config </code> and modifying line 5: <code> Port 22 </code> to <code> Port 2200 </code>
-4) Execute the following commands for the firewall settings:
+4) Execute the following commands for the <code>ufw</code> settings:
 <ul>
+  <li><code>sudo ufw default deny incoming connections</code></li>
+  <li><code>sudo ufw default allow outgoing connections</code></li>
   <li><code>sudo ufw allow 2200/tcp</code></li>
   <li><code>sudo ufw allow 123/tcp</code></li>
   <li><code>sudo ufw allow 80/tcp</code></li>
