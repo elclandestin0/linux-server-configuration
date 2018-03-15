@@ -12,6 +12,7 @@ I will provide screenshots to document the steps required to reproduce this proj
   <li> Protect the key by executing the command: <code>chmod 600 <i>path-to-key</i> </code> </li>
   <li> SSH using your local terminal by executing the command: <code>ssh -i <i>path-to-key</i> ubuntu@<i>ip-address-here</i> -p <i>2200</i></code></li>
 </ul>
+3) Update packages by: <code>sudo apt upgrade</code> and <code> sudo apt update</code>
 3) Change port number from 22 to 2200 by executing the file: <code> sudo vim /etc/ssh/sshd_config </code> and modifying line 5: <code> Port 22 </code> to <code> Port 2200 </code>
 4) Execute the following commands for the <code>ufw</code> settings:
 <ul>
@@ -22,3 +23,10 @@ I will provide screenshots to document the steps required to reproduce this proj
   <li><code>sudo ufw allow 80/tcp</code></li>
   <li><code>sudo ufw enable</code></li>
 </ul>
+5) Create new user <code>grader</code> by executing the command <code> sudo adduser </code> grader
+6) Give <code>grader</code> the permission to <code> sudo </code> by executing the following command: <code> sudo vim /etc/sudoers.d/grader </code> and adding the line <code> grader ALL=(ALL) NOPASSWD:ALL </code>
+7) Create a SSH key-pair for grader by doing the following:
+- Switch to grader through the remote terminal: <code>su - grader</code>
+- <code>mkdir .ssh</code> and <code> touch .ssh/authorized_keys</code>
+- <code> ssh-keygen </code> then execute <code>cat <your-keygen-name.pub> </code>, copy the text and paste it in the remote machine's <code>authorized_keys</code>
+- <code> ssh </code> into grader as a user using the ip address and the keygen you just generated.
