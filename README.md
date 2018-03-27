@@ -34,4 +34,11 @@ I will provide screenshots to document the steps required to reproduce this proj
 - <code>sudo dpkg-reconfigure tzdata </code>
 - Scroll down to select <code> None of the above </code> then selecting <code> UTC </code>
 
-10) 
+10) Install and configure apache to serve a Python mod_wsgi application. Instructions
+followed <a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04">here</a>
+
+11) Install and configure PostgreSQL. Instructions followed here <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps"> Here </a>
+
+12) Install git by executing <code> sudo apt install git </code>
+13) <code> git clone <name-of-repository> </code>
+14) Deploy the item catalog <a href="18.219.103.164:8000"> project </a>
